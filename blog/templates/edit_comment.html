@@ -1,0 +1,15 @@
+{% comment %} {% if user.is_superuser %} {% endcomment %}
+<form method="POST">
+  {% csrf_token %} {{ form.as_p }}
+  <input type="submit" value="Submit" class="btn btn-secondary btn-lg" />
+  <a href="{% url 'home' %}" style="text-decoration: none"
+    ><button
+      type="button"
+      class="btn btn-lg ms-2"
+      style="border-style: solid; border-color: #000"
+    >
+      Back
+    </button></a
+  >
+</form>
+{% comment %} {% endif %} {% endcomment %}
