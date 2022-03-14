@@ -1,4 +1,11 @@
-{% extends 'base.html' %} {% block body %}
+{% extends 'base.html' %}
+
+{% load static %}
+{% block head %}
+  <link rel="stylesheet" type="text/css" href="{% static 'registration.css' %}" />
+{% endblock %}
+
+{% block body %}
 
 <div
   class="d-flex flex-column justify-content-center"
@@ -16,19 +23,19 @@
                 </p>
 
                 {% if form.errors %}
-                <div class="alert alert-secondary" role="alert">
-                  There was an error with the form. Please make sure each field
-                  has been filled in correctly.
+                <div class="alert alert-danger" role="alert">
+                  There was an error with the form. Please try again.
                 </div>
                 {% endif %}
 
                 <form
                   action="{% url 'register' %}"
                   method="POST"
-                  class="mx-1 mx-md-4"
+                  class="mx-1 mx-md-4 register-form"
                 >
-                  {% csrf_token %} {{ form.as_p }}
-
+                  {% csrf_token %}
+                  {{ form.as_p }}
+                  
                   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                     <input
                       type="submit"

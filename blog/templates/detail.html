@@ -1,5 +1,17 @@
-{{ post.title }}<br>
-{{ post.created }}<br>
-{{ post.body }}<br>
+{% extends 'base.html' %} {% block body %}
 
-<a href="{% url 'home' %}">Back</a>
+<header style="padding: 20px">
+  <a href="{% url 'home' %}"
+    ><i class="fas fa-arrow-left" style="font-size: 2rem"></i
+  ></a>
+</header>
+
+<div class="blog-post">
+  <h1>{{ post.title }}</h1>
+  <p style="opacity: 0.5">
+    <i class="far fa-clock"></i> <i>{{ post.created }}</i>
+  </p>
+  <p>{{ post.body|linebreaksbr }}</p>
+</div>
+
+{% endblock body %}

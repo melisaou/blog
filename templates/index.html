@@ -38,7 +38,9 @@
 <div class="menu">
   <ul>
     <li>
-      <button onclick="themeFunction()"><div class="theme"></div></button>
+      <button onclick="themeFunction()" class="theme-btn">
+        <div class="theme"></div>
+      </button>
     </li>
     <li><a href="#about" class="about-menu">About</a></li>
     <li><a href="#blog" class="blog-menu">Blog</a></li>
@@ -84,18 +86,22 @@
 
   <div id="blog">
     <h1 class="left-header">Blog</h1>
-    {% if user.is_superuser %}
+    {% comment %} {% if user.is_superuser %}
     <a href="{% url 'add_post' %}">add</a>
-    {% endif %}
-    <ul>
-      {% for post in object_list %}
-      <li>
-        <a href="{% url 'detail' post.pk %}">{{ post.title }}</a><br />
-        {{ post.created }}<br />
-        {{ post.body }}
-      </li>
-      {% endfor %}
-    </ul>
+    {% endif %} {% endcomment %}
+    <div class="blog-list">
+      <hr />
+      <ul>
+        {% for post in object_list %}
+        <li>
+          <a href="{% url 'detail' post.pk %}" style="font-size: 1.4rem"
+            >{{ post.title }}</a
+          ><br />
+          <i>Posted on {{ post.created }}</i>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
   </div>
 
   <footer id="contact">

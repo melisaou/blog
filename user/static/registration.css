@@ -1,0 +1,15 @@
+.register-form ul:not(.errorlist) {
+    display: none;
+}
+
+.register-form .helptext {
+    display: none;
+}
+
+.register-form .errorlist {
+    color: #ff7495;
+    display: block;
+    list-style: none;
+    font-style: italic;
+    padding: 0;
+}

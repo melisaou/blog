@@ -118,7 +118,7 @@ header {
     font-weight: 600;
     animation: appear 0.75s ease-out 1.5s forwards;
     font-size: calc(20px + 4vw);
-    color: #bbeeff;
+    color: #fff;
 }
 
 @keyframes appear {
@@ -170,17 +170,17 @@ header {
 
 .menu ul li a:hover::before {
     content: "| ";
-    color: #ff7495;
+    color: gray;
 }
 
-.menu ul li button {
+.theme-btn {
     border: none;
     background-color: transparent;
     cursor: pointer;
     transition: 0.75s;
 }
 
-.menu ul li button:hover {
+.theme-btn:hover {
     transform: rotate(-30deg);
 }
 
@@ -282,7 +282,6 @@ header {
 
 #blog {
     height: auto;
-    padding-bottom: 120px;
 }
 
 footer {
@@ -358,4 +357,15 @@ footer {
 
 footer.light {
     background-color: #d3d3d3;
+}
+
+.blog-list {
+    width: 80%;
+    margin: auto;
+}
+
+.blog-post {
+    width: 80%;
+    margin: auto;
+    margin-top: 5rem;
 }
