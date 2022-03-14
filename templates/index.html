@@ -5,17 +5,33 @@
     <div class="toggle"></div>
   </header>
 
-  <video src="https://cdn.dribbble.com/users/721278/screenshots/15785802/media/5d83546414d7bd334c675578df2dcc67.mp4" muted loop autoplay></video>
+  <video
+    src="https://cdn.dribbble.com/users/721278/screenshots/15785802/media/5d83546414d7bd334c675578df2dcc67.mp4"
+    muted
+    loop
+    autoplay
+  ></video>
   <div class="overlay"></div>
 
   <div class="text">
-    {% if user.is_authenticated %}
+    {% if user.is_authenticated and user.get_short_name %}
     <h2>Hello, {{ user.get_short_name }}!</h2>
+    {% elif user.is_authenticated %}
+    <h2>Hello, {{ user.get_username }}!</h2>
     {% else %}
     <h2>Hello!</h2>
     {% endif %}
     <h1>Welcome</h1>
-    <i class="fas fa-angle-double-down" style="color: #fff; margin-top: 10px; font-size: 20px; animation: appear 0.75s ease-out 2.25s forwards, move-up-down 1.5s linear infinite"></i>
+    <i
+      class="fas fa-angle-double-down"
+      style="
+        color: #fff;
+        margin-top: 10px;
+        font-size: 20px;
+        animation: appear 0.75s ease-out 2.25s forwards,
+          move-up-down 1.5s linear infinite;
+      "
+    ></i>
   </div>
 </section>
 
@@ -68,14 +84,21 @@
 
   <div id="blog">
     <h1 class="left-header">Blog</h1>
+    {% if user.is_superuser %}
+    <a href="{% url 'add_post' %}">add</a>
+    {% endif %}
+    <ul>
+      {% for post in object_list %}
+      <li>
+        <a href="{% url 'detail' post.pk %}">{{ post.title }}</a><br />
+        {{ post.created }}<br />
+        {{ post.body }}
+      </li>
+      {% endfor %}
+    </ul>
   </div>
 
-  <div class="contact-me" id="contact">
-    <p>Let's talk!</p>
-    <a href="mailto:melisa.ayu@ui.ac.id" aria-label="Go to Mail page"><button class="btn">Contact Me</button></a>
-  </div>
-
-  <footer>
+  <footer id="contact">
     <div class="social-icons">
       <a href="mailto:melisa.ayu@ui.ac.id" aria-label="Mail"
         ><i class="far fa-envelope"></i

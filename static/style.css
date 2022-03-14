@@ -345,7 +345,7 @@ footer p {
     }
 }
 
-.contact-me {
+footer {
     width: 100%;
     height: 280px;
     background-color: #2d2d2d;
@@ -353,37 +353,9 @@ footer p {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 10% 0px 20px 0px;
+    margin: 10% 0px 0px 0px;
 }
 
-.contact-me p {
-    font-size: 30px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: bold;
-    border-bottom: 2px solid #fff;
-}
-
-.contact-me button {
-    width: 200px;
-    height: 40px;
-    background-color: rgba(128, 128, 128, 0.5);
-    outline: none;
-    border: none;
-    font-size: 14px;
-    color: #fff;
-    font-family: 'Poppins', sans-serif;
-    cursor: pointer;
-}
-
-.contact-me button:hover {
-    transition: 0.5s;
-}
-
-.contact-me.light {
+footer.light {
     background-color: #d3d3d3;
-}
-
-.contact-me.light p {
-    border-bottom: 2px solid #000;
-    opacity: 0.8;
 }

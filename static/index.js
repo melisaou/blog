@@ -33,7 +33,7 @@ function themeFunction() {
         document.querySelector('.about-container'),
         document.querySelector('.text'),
         document.querySelector('.social-icons'),
-        document.querySelector('.contact-me'),
+        document.querySelector('footer'),
         document.querySelector('.overlay'),
     ];
 
