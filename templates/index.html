@@ -87,9 +87,9 @@
   <div id="blog">
     <h1 class="left-header">Blog</h1>
     <div class="blog-list">
-      {% comment %} {% if user.is_superuser %}
-      <a href="{% url 'add_post' %}">Add post</a>
-      {% endif %} {% endcomment %}
+      {% if user.is_superuser %}
+      <a href="{% url 'add_post' %}" style="text-decoration: none; color: #ff7495">+ Add post</a>
+      {% endif %}
       <hr />
       <ul>
         {% for post in object_list %}

@@ -1,6 +1,6 @@
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from .forms import CommentForm
+from .forms import CommentForm, PostForm
 from blog.models import Post, Comment
 
 class Home(ListView):
@@ -14,7 +14,7 @@ class Detail(DetailView):
 class AddPost(CreateView):
     model = Post
     template_name = 'add_post.html'
-    fields = '__all__'
+    form_class = PostForm
 
 class AddComment(CreateView):
     model = Comment
