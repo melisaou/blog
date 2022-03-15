@@ -26,7 +26,13 @@
   {% else %} 
   {% for comment in post.comments.all %}
   <div style="margin: 30px 0">
-    <p><i class="fas fa-user-circle"></i> <b style="margin-left: 10px">{{ comment.author.first_name }} {{ comment.author.last_name }}</b> <i style="opacity: 0.5">• Last modified {{ comment.modified }}</i></p>
+    <p><i class="fas fa-user-circle"></i> <b style="margin-left: 10px">
+      {% if comment.author.first_name %}
+      {{ comment.author.first_name }} {{ comment.author.last_name }}
+      {% else %}
+      {{ comment.author }}
+      {% endif %}
+    </b> <i style="opacity: 0.5">• Last modified {{ comment.modified }}</i></p>
     <p>{{ comment.comment|linebreaksbr }}</p>
     {% if user.is_authenticated and comment.author == user %}
     <p><a href={% url 'edit_comment' comment.pk %} style="margin-right: 20px; text-decoration: none;"><i class="fas fa-edit"></i> Edit</a>
