@@ -27,7 +27,7 @@ PROJECT_PATH = os.path.realpath(os.path.dirname(__file__))
 SECRET_KEY = 'django-insecure-587!q^ds(zs^#i622pdh(n8b3qwx2qn$6-(=b93pm&#=fz#crv'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = not IS_PRODUCTION
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
