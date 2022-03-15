@@ -1,2 +1,2 @@
 migrate: bash deployment.sh
-web: gunicorn mysite.wsgi --log-file -
+release: gunicorn mysite.wsgi --log-file -
