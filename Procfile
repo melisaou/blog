@@ -1,2 +1,2 @@
 web: gunicorn mysite.wsgi --log-file -
-migrate: bash deployment.sh
+release: bash deployment.sh
