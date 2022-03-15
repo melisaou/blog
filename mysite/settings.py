@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os.path
 from pathlib import Path
+import dj_database_url
+
+IS_PRODUCTION = True if os.environ.get("IS_PRODUCTION", "") == "True" else False
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,7 +27,7 @@ PROJECT_PATH = os.path.realpath(os.path.dirname(__file__))
 SECRET_KEY = 'django-insecure-587!q^ds(zs^#i622pdh(n8b3qwx2qn$6-(=b93pm&#=fz#crv'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = not IS_PRODUCTION
 
 ALLOWED_HOSTS = []
 
@@ -78,12 +81,19 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+DATABASE_LOCAL = {
+    'ENGINE': 'django.db.backends.sqlite3',
+    'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 }
+
+if IS_PRODUCTION:
+    DATABASES = {
+        'default': dj_database_url.config(default=os.environ["DATABASE_URL"])
+    }
+else:
+    DATABASES = {
+        'default': DATABASE_LOCAL
+    }
 
 
 # Password validation
