@@ -36,6 +36,7 @@
     <li class="about-menu" onclick="aboutFunction()">About</li>
     <li class="blog-menu" onclick="blogFunction()">Blog</li>
     <li class="contact-menu" onclick="contactFunction()">Contact</li>
+    <li><a href="{% url 'register' %}">Register</a></li>
     {% if user.is_authenticated %}
     <li><a href="{% url 'logout' %}">Logout</a></li>
     {% else %}
