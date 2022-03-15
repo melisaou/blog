@@ -261,7 +261,7 @@ header {
     box-shadow: 2px 2px 12px rgba(180, 180, 180, 0.6);
 }
 
-.about-container img {
+.profile-pic {
     width: 300px;
     margin: 18px;
     border-radius: 55% 45% 48% 52% / 69% 59% 41% 31%;
@@ -281,8 +281,7 @@ header {
 
 .about-text p:nth-child(2),
 .about-text p:nth-child(3),
-.about-text p:nth-child(4),
-.about-text p:nth-child(5) {
+.about-text p:nth-child(4) {
     font-size: 0.9rem;
     margin-top: 10px;
 }

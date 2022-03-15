@@ -1,0 +1,42 @@
+{% extends 'base.html' %} {% block body %}
+
+<header style="padding: 30px">
+  <a href="{% url 'home' %}" style="display: inline-block"
+    ><i class="fas fa-arrow-left" style="font-size: 2rem"></i
+  ></a>
+  <button
+    onclick="themeFunction()"
+    class="theme-btn"
+    style="display: inline-block; float: right"
+  >
+    <div class="theme"></div>
+  </button>
+</header>
+
+<section style="margin-top: 6rem">
+  <div
+    style="
+      width: auto;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      flex-direction: column;
+      margin: auto;
+    "
+  >
+    <img
+      src="../static/assets/profile.png"
+      alt="Profile picture"
+      class="profile-pic"
+    />
+    <h3 style="text-align: center; margin-top: 10px">Melisa Ayu Angelina</h3>
+    <h5 style="opacity:0.5">Melisa</h5>
+    <p style="text-align: center">
+      <i class="fas fa-birthday-cake"></i> 08 April 2001<br />
+      <i class="fas fa-home"></i> Jember, Jawa Timur<br>
+      <i class="fas fa-graduation-cap"></i> Homeschooling Kak Seto Surabaya<br>
+      <i class="fas fa-heart"></i> Swimming, Netflixing
+    </p>
+  </div>
+</section>
+{% endblock body %}
