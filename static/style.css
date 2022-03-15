@@ -162,15 +162,21 @@ header {
     margin-top: 10px;
 }
 
+.menu ul li,
 .menu ul li a {
     text-decoration: none;
     font-size: 24px;
     color: #fff;
+    cursor: pointer;
 }
 
-.menu ul li a:hover::before {
+.menu ul li:hover::before {
     content: "| ";
     color: gray;
+}
+
+.menu ul li:nth-child(1)::before {
+    content: "";
 }
 
 .theme-btn {
@@ -188,6 +194,7 @@ header {
     background-color: #e4e4e4;
 }
 
+.menu.light ul li,
 .menu.light ul li a {
     color: #000;
 }
@@ -329,8 +336,6 @@ footer p {
     color: rgba(128, 128, 128, 0.5);
     cursor: pointer;
     font-size: 2rem;
-    background-color: transparent;
-    border: none;
     z-index: 1;
 }
 
@@ -367,5 +372,44 @@ footer.light {
 .blog-post {
     width: 80%;
     margin: auto;
-    margin-top: 5rem;
+    margin-top: 6rem;
+}
+
+.blog-comment {
+    width: 80%;
+    margin: auto;
+    margin-top: 3rem;
+}
+
+.text i {
+    color: #fff;
+    margin-top: 10px;
+    font-size: 20px;
+    animation: appear 0.75s ease-out 2.25s forwards, move-up-down 1.5s linear infinite;
+    cursor: pointer;
+}
+
+.blog-list ul li {
+    margin-bottom: 20px;
+}
+
+.blog-list ul li a {
+    font-size: 1.4rem;
+}
+
+.delete {
+    color: #ff7495;
+}
+
+.delete:hover {
+    color: rgb(180, 50, 80);
+}
+
+.comment-head,
+.add-comment {
+    display: inline-block;
+}
+
+.add-comment {
+    float: right;
 }

@@ -22,16 +22,7 @@
     <h2>Hello!</h2>
     {% endif %}
     <h1>Welcome</h1>
-    <i
-      class="fas fa-angle-double-down"
-      style="
-        color: #fff;
-        margin-top: 10px;
-        font-size: 20px;
-        animation: appear 0.75s ease-out 2.25s forwards,
-          move-up-down 1.5s linear infinite;
-      "
-    ></i>
+    <i class="fas fa-angle-double-down" onclick="aboutFunction()"></i>
   </div>
 </section>
 
@@ -42,21 +33,19 @@
         <div class="theme"></div>
       </button>
     </li>
-    <li><a href="#about" class="about-menu">About</a></li>
-    <li><a href="#blog" class="blog-menu">Blog</a></li>
-    <li><a href="#contact" class="contact-menu">Contact</a></li>
+    <li class="about-menu" onclick="aboutFunction()">About</li>
+    <li class="blog-menu" onclick="blogFunction()">Blog</li>
+    <li class="contact-menu" onclick="contactFunction()">Contact</li>
     {% if user.is_authenticated %}
-    <li><a href="{% url 'logout' %}" class="login-menu">Logout</a></li>
+    <li><a href="{% url 'logout' %}">Logout</a></li>
     {% else %}
-    <li><a href="{% url 'login' %}" class="login-menu">Login</a></li>
+    <li><a href="{% url 'login' %}">Login</a></li>
     {% endif %}
   </ul>
 </div>
 
 <section class="content">
-  <button onclick="topFunction()" id="topBtn">
-    <i class="fas fa-caret-square-up"></i>
-  </button>
+  <i class="fas fa-caret-square-up" onclick="topFunction()" id="topBtn"></i>
 
   <div id="about">
     <h1 class="right-header">About</h1>
@@ -94,9 +83,7 @@
       <ul>
         {% for post in object_list %}
         <li>
-          <a href="{% url 'detail' post.pk %}" style="font-size: 1.4rem"
-            >{{ post.title }}</a
-          ><br />
+          <a href="{% url 'detail' post.pk %}">{{ post.title }}</a><br />
           <i>Posted on {{ post.created }}</i>
         </li>
         {% endfor %}
@@ -125,7 +112,7 @@
         ><i class="fab fa-instagram"></i
       ></a>
     </div>
-    <p>Melisa Ayu Angelina © 2022</p>
+    <p>Feel free to get in touch with me! :D</p>
   </footer>
 </section>
 

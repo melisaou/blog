@@ -18,10 +18,22 @@ for (var menuToggleItem of menuToggleDomList) {
     menuToggleItem.addEventListener('click', toggle);
 }
 
-// TOP BUTTON
+// SCROLL FUNCTION
 function topFunction() {
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+
+function aboutFunction() {
+    document.getElementById('about').scrollIntoView();
+}
+
+function blogFunction() {
+    document.getElementById('blog').scrollIntoView();
+}
+
+function contactFunction() {
+    document.getElementById('contact').scrollIntoView();
 }
 
 // TOGGLE THEME

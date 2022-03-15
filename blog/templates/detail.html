@@ -1,9 +1,12 @@
 {% extends 'base.html' %} {% block body %}
 
-<header style="padding: 20px">
+<header style="padding: 30px">
   <a href="{% url 'home' %}"
-    ><i class="fas fa-arrow-left" style="font-size: 2rem"></i
+    style="display: inline-block"><i class="fas fa-arrow-left" style="font-size: 2rem"></i
   ></a>
+  <button onclick="themeFunction()" class="theme-btn" style="display: inline-block; float: right">
+    <div class="theme"></div>
+  </button>
 </header>
 
 <div class="blog-post">
@@ -14,20 +17,26 @@
   <p>{{ post.body|linebreaksbr }}</p>
 </div>
 
-<div style="width: 80%; margin:auto">
-  <h2>Comments</h2>
-  <a href="{% url 'add_comment' post.pk %}">Add one</a><br>
+<div class="blog-comment">
+  <h3 class="comment-head">Comments</h3>
+  {% if user.is_authenticated %}
+  <a href="{% url 'add_comment' post.pk %}" class="add-comment" style="text-decoration: none"><i class="fas fa-plus"></i> Add Comment</a>
+  {% endif %}
+  <hr>
   {% if not post.comments.all %}
-  <p>No comments yet</p>
+  <p style="text-align: center; margin-top: 50px">No comments yet</p>
   {% else %} 
-  <ul>
   {% for comment in post.comments.all %}
-  <li><b>{{ comment.name.first_name }} {{ comment.name.last_name }} - {{ comment.modified }}</b> 
-    <a href={% url 'edit_comment' comment.pk %}>(Edit)</a><br>
-    <a href={% url 'delete_comment' comment.pk %}>(Delete)</a><br>
-  {{ comment.body }}</li>
+  <div style="margin: 30px 0">
+    <p><i class="fas fa-user-circle"></i> <b style="margin-left: 10px">{{ comment.author.first_name }} {{ comment.author.last_name }}</b> <i style="opacity: 0.5">• Last modified {{ comment.modified }}</i></p>
+    <p>{{ comment.comment|linebreaksbr }}</p>
+    {% if user.is_authenticated and comment.author == user %}
+    <p><a href={% url 'edit_comment' comment.pk %} style="margin-right: 20px; text-decoration: none;"><i class="fas fa-edit"></i> Edit</a>
+    <a href={% url 'delete_comment' comment.pk %} style="text-decoration: none;" class="delete"><i class="fas fa-eraser"></i> Delete</a></p>
+    {% endif %}
+  </div>
+  <hr>
   {% endfor %}
-  </ul>
   {% endif %}
 </div>
 

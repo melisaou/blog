@@ -1,0 +1,80 @@
+{% extends 'base.html' %} {% load static %} {% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'registration.css' %}" />
+{% endblock %} {% block body %}
+
+<div
+  class="d-flex flex-column justify-content-center"
+  style="min-height: 100vh"
+>
+  <div class="container">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-12 col-xl-11">
+        <div class="card text-black" style="border-radius: 25px">
+          <div class="card-body p-md-5">
+            <div class="row justify-content-center">
+              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">
+                  Register
+                </p>
+
+                {% if form.errors %}
+                <div class="alert alert-danger" role="alert">
+                  There was an error with the form. Please try again.
+                </div>
+                {% endif %}
+
+                <form
+                  action="{% url 'register' %}"
+                  method="POST"
+                  class="mx-1 mx-md-4 register-form"
+                >
+                  {% csrf_token %} {{ form.as_p }}
+
+                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                    <input
+                      type="submit"
+                      value="Register"
+                      class="btn btn-secondary btn-lg"
+                    />
+                    <a href="{% url 'home' %}" style="text-decoration: none"
+                      ><button
+                        type="button"
+                        class="btn btn-lg ms-2"
+                        style="border-style: solid; border-color: #000"
+                      >
+                        Back
+                      </button></a
+                    >
+                  </div>
+
+                  <p class="text-center text-muted mt-5 mb-0">
+                    Have an account already?
+                    <a href="{% url 'login' %}" class="fw-bold text-body"
+                      ><u>Login here</u></a
+                    >
+                  </p>
+                </form>
+              </div>
+
+              <div
+                class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2"
+              >
+                <img
+                  src="https://cdn.dribbble.com/users/1045693/screenshots/9177955/media/78b33c5b809606a66172ba0d79ab4c1c.gif"
+                  class="img-fluid"
+                  alt="Sample image"
+                  style="
+                    -webkit-filter: grayscale(100%);
+                    filter: grayscale(100%);
+                  "
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock body %}
