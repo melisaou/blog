@@ -202,7 +202,7 @@ header {
 .theme {
     width: 35px;
     height: 35px;
-    background: url("assets/sun.png");
+    background: url("sun.png");
     background-repeat: no-repeat;
     background-size: 30px;
     background-position: center;
@@ -211,7 +211,7 @@ header {
 .theme.light {
     width: 35px;
     height: 35px;
-    background: url("assets/moon.png");
+    background: url("moon.png");
     background-repeat: no-repeat;
     background-size: 30px;
     background-position: center;
