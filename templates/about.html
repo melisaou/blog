@@ -1,5 +1,6 @@
 {% extends 'base.html' %} {% block body %}
 
+{% load static %}
 <header style="padding: 30px">
   <a href="{% url 'home' %}" style="display: inline-block"
     ><i class="fas fa-arrow-left" style="font-size: 2rem"></i
@@ -25,7 +26,7 @@
     "
   >
     <img
-      src="../static/assets/profile.png"
+      src="{% static 'assets/profile.png' %}"
       alt="Profile picture"
       class="profile-pic"
     />

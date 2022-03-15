@@ -1,5 +1,6 @@
 {% extends 'base.html' %} {% block body %}
 
+{% load static %}
 <section class="showcase">
   <header>
     <div class="toggle"></div>
@@ -52,7 +53,7 @@
     <h1 class="right-header">About</h1>
     <div class="about-container">
       <img
-        src="static/assets/profile.png"
+        src="{% static 'assets/profile.png' %}"
         alt="Profile picture"
         class="profile-pic"
       />
