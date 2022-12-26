@@ -23,3 +23,6 @@ Untuk membuat superuser, jalankan **python manage.py createsuperuser**
 ### Catatan
 * Saya menggunakan versi Python 3.8.5 dan Django 3.2.7
 * Website ini juga sudah di-deploy pada Heroku (https://melisaou.herokuapp.com/)
+
+Cheers,
+Melisa
